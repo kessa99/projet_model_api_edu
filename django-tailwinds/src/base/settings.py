@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'Archive',
     'crispy_forms',
     'widget_tweaks',
+    'agenda',
+    'massenger',
 ]
 
 MIDDLEWARE = [
