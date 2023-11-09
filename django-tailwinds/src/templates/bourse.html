@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}bourse{% endblock %}
+
+{% block content %}
+
+<div class="pb-16">
+    <div class="bg-blue-500 text-white p-4 ">
+        Formulaire Bourse
+    </div>
+  
+    {% load crispy_forms_tags %}
+    {% load widget_tweaks %}
+    
+    <form method="POST" novalidate>
+        {% csrf_token %}
+        {% for hidden_field in form.hidden_fields %}
+            {{ hidden_field }}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+            <div class="m-4">
+                {{ field.label_tag }}
+                {% render_field field class="w-full h-full rounded-lg outline-none border border-solid border-gray-600 rounded-3xl text-base font-normal py-4 px-4 border-b border-gray-400 focus:border-lime-500 focus:border-b-2"|add_class:"my-custom-class" %}
+                {% if field.help_text %}
+                    <small class="block w-full h-full rounded-lg outline-none border border-solid border-gray-600 rounded-3xl text-base font-normal py-0 px-4 border-b border-gray-400 focus:border-lime-500 focus:border-b-2">{{ field.help_text }}</small>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit" class="lg:rounded-full inline-flex items-center py-4 px-3 bg-neutral-950 text-white rounded-lg text-sm font-medium hover:bg-lime-500">
+            Ajouter
+        </button>
+    </form>
+    
+<!-- 
+    
+    
+    <h2 class="bg-lime-500 text-white p-4 items-center text-center">Liste de Bourses</h2>
+    
+    {% for bourse in bourses %}
+    
+        <h2>{{ bursary.title }}</h2>
+        {{ bursary.date }}
+        <p>Domaine: {{ bursary.domain }}</p>
+        <p>type de Bourse: {{ bursary.type }}</p>
+        <p>Duree de la bourse: {{ bursary.duration }}</p>
+        <p>Cout: {{ bursary.amount }}</p>
+        <p>Total disponible: {{ bursary.total_slots }}</p>
+        <p>disponible: {{ bursary.available_slots }}</p>
+        <p>Actif: {{ bursary.is_active }}</p>
+        <p>Description: {{ bursary.description }}</p>
+        <p>Applicant: {{ bursary.applicants }}</p>
+    
+        {% empty %}
+    
+        <p>Aucune bourse disponible.</p>
+    
+    {% endfor %} -->
+</div>
+
+{% endblock %}
