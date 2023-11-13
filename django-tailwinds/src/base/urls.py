@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -26,9 +27,9 @@ urlpatterns = [
     path('', include('Archive.urls')),
     path('', include('Bourse.urls')),
     path('', include('Event.urls')),
+    path('', include('massenger.urls')),
 ]
 
 if settings.DEBUG:
-    #a ne pas lancer quand on est en production
-    from django.conf.urls.static import static
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

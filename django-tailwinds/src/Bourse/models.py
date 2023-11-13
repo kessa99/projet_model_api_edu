@@ -11,9 +11,9 @@ scholarship_types = (
 )
 
 class Bursary(models.Model):
+    title = models.CharField(max_length=255)
     domain = models.CharField(max_length=255)
     type = models.CharField(max_length=50, default='', choices=scholarship_types)
-    title = models.CharField(max_length=255)
     duration = models.IntegerField()
     amount = models.IntegerField()
     total_slots = models.IntegerField(blank=True, null=True)
@@ -22,6 +22,7 @@ class Bursary(models.Model):
     description = models.TextField(default='', blank=True, null=True)
     applicants = models.CharField(max_length=255)
     date = models.DateField(auto_now=True)
+    cover_photo = models.ImageField(blank=True, null=True)
 
     def str(self):
         return f'{self.name}'

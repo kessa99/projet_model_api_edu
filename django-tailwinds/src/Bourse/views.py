@@ -13,5 +13,6 @@ def bourse(request):
         form = BursaryForm()
     return render(request, 'bourse.html', {'form': form})
 
-
+def temp_bourses(request):
+    return render(request, 'temp_bourses.html', {})
     
