@@ -28,8 +28,8 @@ urlpatterns = [
     path('', include('Bourse.urls')),
     path('', include('Event.urls')),
     path('', include('massenger.urls')),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+ 

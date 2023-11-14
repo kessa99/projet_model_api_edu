@@ -22,7 +22,7 @@ class Bursary(models.Model):
     description = models.TextField(default='', blank=True, null=True)
     applicants = models.CharField(max_length=255)
     date = models.DateField(auto_now=True)
-    cover_photo = models.ImageField(blank=True, null=True)
+    cover_photo = models.ImageField(blank=True, null=True, upload_to="images/")
 
     def str(self):
         return f'{self.name}'

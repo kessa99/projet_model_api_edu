@@ -5,7 +5,7 @@ from .forms import BursaryForm
 
 def save_bourse(request):
     if request.method == 'POST':
-        form = BursaryForm(request.POST)
+        form = BursaryForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()  # Enregistre la bourse dans la base de données
             return render(request, 'bourses/print_bourse.html', {})
