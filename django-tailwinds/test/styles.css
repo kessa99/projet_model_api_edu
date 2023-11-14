@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.chatbox {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1.5fr; /* Trois colonnes de largeurs 200px, flexible, 200px */
+     /* Espace entre les colonnes */
+    height: 100vh; /* Hauteur de la chatbox (ajustez selon vos besoins) */
+  }
+  
+  .contacts, .conversation, .contact-info {
+    border: 1px solid #ccc; /* Ajoutez une bordure pour visualiser les colonnes */
+    padding: 10px; /* Ajoutez un espacement intérieur */
+  }
+  
+  /* partie 1 affichage de la partie contact */
+  .contacts {
+    display: grid;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr 1fr;
+    grid-gap: 10px;
+    height: 100vh;
+  }
+
+  .info-profile, .search, .outils-msg, .msg {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+
+/* Partie profil à la première colonne des contacts */
+.info-profile {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 100px 1fr;
+  }
+  
+  .photo {
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 50%;
+  }
+
+  .info {
+    font-weight: bold;
+  }
+
+  /* partie recherche de la seconde partie de contacts */
+  
+.search {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+  }
+  
+  .search input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 8px;
+  }
+  
+  .search button {
+    background-color: rgb(12, 16, 255);
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* parie des outils pour des recherche plus pousse il doit y avoir normalement 3 section: tout message non-lu group */
+
+  .outils-msg {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap:10px;
+  }
+
+  .tout, .non-lu, .group {
+    border: 1px solid #fc0707;
+    text-align: center;
+    padding: 2px;
+  }
+
+  /*  */
+
+  
+.msg {
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto; /* Permet le défilement vertical si le contenu dépasse la hauteur */
+  }
+  
+  .contact-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-list li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .contact-list li:last-child {
+    border-bottom: none;
+  }
+
+
+
+
+
+
+
+  /* css pour la conversation */
+
+  
+.conversation {
+    display: grid;
+    grid-template-rows: 0.1fr 6fr 0.1fr; /* Trois colonnes de largeurs 200px, flexible, 200px */
+    grid-gap: 10px;
+    height: 100vh;
+  }
+  
+  .zone-nav-bar-discussions {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .profile-info {
+    font-weight: bold;
+  }
+  
+  .call-button {
+    background-color: #2196F3;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+ 
+.zone-nav-bar-discussions {
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+  }
+  
+  .profile-info {
+    font-weight: bold;
+  }
+  
+  .call-button {
+    background-color: #2196F3;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .zone-message {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .zone-envoi-message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
+  }
+  
+  .zone-envoi-message textarea {
+    width: 100%;
+    margin-bottom: 8px;
+    
+  }
+  
+  .send-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+
+
+  /* La troisieme section */
+  .contact-info {
+    display: grid;
+    grid-template-rows: 200px 0.1fr 0.1fr 0.1fr 0.1fr;
+    grid-gap: 10px;
+    height: 100vh;
+  }
+
+  .profil-conversation, .info-rapide, .voir-profil, .recherche-discussion, .Galery {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+  }
+  .profil-conversation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ajustez selon vos besoins */
+  }
+  .photo-profil {
+    width: 150px;
+    height: 150px; 
+    background-color: #ddd;
+    border-radius: 50%; 
+  }
+  .recherche-discussion{
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+  }
+  .recherche-discussion input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 8px;
+  }
+  .recherche-discussion button {
+    background-color: rgb(12, 16, 255);
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+  }

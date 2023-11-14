@@ -3,16 +3,18 @@ from django.http import HttpResponse
 from .models import Bursary
 from .forms import BursaryForm
 
-def bourse(request):
+def save_bourse(request):
     if request.method == 'POST':
         form = BursaryForm(request.POST)
         if form.is_valid():
             form.save()  # Enregistre la bourse dans la base de données
-            return HttpResponse("Ajout d'une bourse réussi.")
+            return render(request, 'bourses/print_bourse.html', {})
     else:
         form = BursaryForm()
-    return render(request, 'bourse.html', {'form': form})
+    return render(request, 'bourses/save_bourse.html', {'form': form})
 
-def temp_bourses(request):
-    return render(request, 'temp_bourses.html', {})
+
+def print_bourse(request):
+    bourses = Bursary.objects.all()
+    return render(request, 'bourses/print_bourse.html', {"bourses": bourses})
     

@@ -11,6 +11,48 @@
     {% include 'head/css.html' %}
 </head>
 <body>
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="text-white text-xl font-semibold">Afridemia</div>
+            <div class="hidden md:flex space-x-4">
+                <a href="{% url 'home' %}" class="text-white">Accueil</a>
+                <a href="{% url 'save_bourse' %}" class="text-white">Saisir Bourse</a>
+                <a href="{% url 'print_bourse' %}" class="text-white">afficher Bourse</a>
+                <a href="#" class="text-white">À Propos</a>
+                <a href="#" class="text-white">Contact</a>
+            </div>
+
+            <div class="md:hidden">
+                <!-- Bouton pour afficher/masquer la navigation sur les petits écrans -->
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-700 p-4">
+            <a href="{% url 'home' %}" class="text-white">Accueil</a>
+            
+            
+            <a href="#" class="text-white block mb-2">autre</a>
+            <a href="{% url 'save_bourse' %}" class="text-white">Saisir Bourse</a>
+            <a href="#" class="text-white block mb-2">Services</a>
+            <a href="{% url 'print_bourse' %}" class="text-white">afficher Bourse</a>
+            <a href="#" class="text-white block mb-2">À Propos</a>
+            <a href="#" class="text-white block">Contact</a>
+            
+        </div>
+    </nav>
     {% block content %}{% endblock %}
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
