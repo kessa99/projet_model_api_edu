@@ -1,26 +1,276 @@
-{% extends 'index_messengers.html' %}
+{% extends 'base_message.html' %}
 
 {% block title %}Mesenger{% endblock %}
 
 {% block content %}
-<div class="grid grid-cols-1 h-screen     md:grid-cols-3    lg:grid-cols-5">
+
+<style>
+    .main{
+        min-height: calc(90vh - 80px - 58px);
+    }
+</style>
+<div class="grid grid-cols-1 h-screen md:grid-cols-3 lg:grid-cols-5">
+    
+    
     <!-- Colonne de gauche -->
-    <div class="col-span-1 bg-blue-800">
+    <div class="col-span-1">
         <!-- Contenu de la colonne de gauche -->
-        <div class="info-profile grid grid-cols-2">
-            <div class="col-span-1 w-1/2 h-1/2 bg-slate-400 "></div>
-            <div class="col-span-2"></div>
+        <div class=" p-4">
+            <!-- partie 1 affichage d'une photo et du nom de l'utilisateur -->
+            <div class=" flex items-center text-center ml-4 font-bold text-2xl">
+                Chat Afridemia 
+            </div>
+    
+            <!-- la partie recherche pour faire une recherche -->
+            <label class="mt-4 relative block">
+                <span class="sr-only">Search</span>
+                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <ion-icon name="search-outline"></ion-icon>
+                </span>
+                <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Recherche..." type="text" name="search"/>
+            </label>
+    
+            <!-- la partie plus pour afficher le type de messagerie -->
+            <div class="mt-4 flex ">
+                <button class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">Tout</button>
+                <button class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">Message non lu</button>
+                <button class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">Group</button>
+            </div>
+            
+
+    
+            <!-- la partie messagerie pour afficher la messagerie -->
+            <h2 class=" mt-4 font-bold text-2xl "></h2> Vos Contacts</h2>
+            <div class="msg mt-4  p-4  overflow-y-scroll h-96 border-b-2">
+                
+                <ul class="contact-list list-none p-0 m-0">
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="border-b-2">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-full w-12 h-12">
+                                <span class="absolute bottom-0 right-0 block w-4 h-4 border-2 border-white rounded-full bg-red-500"></span>
+                            </div>
+                            <div class="ml-4">
+                                <span class="text-lg font-semibold">Chaymae Naim</span>
+                                <p class="text-xs text-gray-500">Left 7 mins ago</p>
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
         </div>
     </div>
 
+
+
     <!-- Zone de messages -->
-    <div class="hidden        md:block md:col-span-2 md:h-screen lg:col-span-3 lg:h-screen bg-lime-500">
+    <div class="bg-slate-300 hidden  md:block md:col-span-2 md:h-screen lg:col-span-3 lg:h-screen ">
         <!-- Contenu de la zone de messages -->
+        <div class="flex flex-col h-screen">
+            
+            <div class=" bg-gray-800 p-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="">
+                        <div class=" bg-gray-400 rounded-full h-12 w-12"></div>
+                        <!-- <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-full h-12 w-12"> -->
+                        <span class="online_icon bg-green-500"></span>
+                    </div>
+                    <div class="user_info ml-4 text-white">
+                        <span>David</span>
+                        <p>15 Messages</p>
+                    </div>
+                    <div class="ml-4">
+                        <span><i class="fas fa-video text-white"></i></span>
+                        <span><i class="fas fa-phone text-white"></i></span>
+                    </div>
+                </div>
+                <span id="action_menu_btn" class="text-white"><ion-icon name="information-circle-outline"></ion-icon></span>
+                <div class="action_menu hidden">
+                    <ul class="text-white">
+                        <li><i class="fas fa-user-circle"></i> View profile</li>
+                        <li><i class="fas fa-users"></i> Add to close friends</li>
+                        <li><i class="fas fa-plus"></i> Add to group</li>
+                        <li><i class="fas fa-ban"></i> Block</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class=" main overflow-y-auto mx-2 my-2">
+                <!-- Messages vont ici -->
+                <article class=" justify-start mb-4">
+                    <!-- Message côté utilisateur -->
+                    <div>
+                        <div class="d-flex justify-content-start mb-4">
+                            <div class="img_cont_msg">
+                                <img src="../entrefemme.jpg" class="rounded-full h-12 w-12">
+                            </div>
+                            <div class="msg_cotainer">
+                                Hi, how are you samim?
+                                <span class="msg_time">8:40 AM, Today</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    
+                </article>
+                <!-- Ajoutez d'autres messages ici -->
+            </div>
+            
+            <div class="bg-gray-800 p-4">
+                <label class="mt-4  relative block bottom-0 left-0 right-0">
+                    <span class="sr-only">messages</span>
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                    </span>
+                    <textarea class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm items-center" placeholder="Ecrivez votre message" type="text" name="search"></textarea>
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+                        <ion-icon name="send-outline"></ion-icon>
+                    </span>
+                </label>
+            </div>
+
+        </div>
+        
+        
     </div>
 
     <!-- Colonne de droite -->
-    <div class="hidden      lg:block lg:col-span-1 lg:h-screen bg-blue-800">
+    <div class="hidden      lg:block lg:col-span-1 lg:h-screen ">
         <!-- Contenu de la colonne de droite -->
+        <div class="contact-info border border-gray-300 p-4 justify-center items-center text-center">
+            <!-- Contenu des informations du contact -->
+            <div class="profil-conversation justify-center items-center text-center">
+                <div class="photo-profil w-32 h-32 bg-gray-400 rounded-full justify-center items-center text-center"></div>
+            </div>
+            <div class="info-rapide mt-4 ">
+                <div class="font-bold">Nom de l'utilisateur</div>
+                <div>Titre</div>
+                <div>En ligne il y a 30 min</div>
+            </div>
+            <label class="mt-4 relative block">
+                <span class="sr-only">Search</span>
+                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <ion-icon name="search-outline"></ion-icon>
+                </span>
+                <input class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Recherches messages" type="text" name="search"/>
+              </label>
+            <div class="voir-profil mt-4 justify-center items-center text-center">
+                <div class="font-bold justify-center items-center text-center pb-2">Voir profil <i class='bx bx-chevron-down ml-2'></i></div>
+            </div>
+            <div class="Galery mt-4">
+                <div class="font-bold">Galerie</div>
+            </div>
+        </div>
     </div>
 </div>
 
