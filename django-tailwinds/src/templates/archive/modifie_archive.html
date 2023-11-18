@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Mettre à jour de l'Archive</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">Mettre a jour</button>
+    </form>
+{% endblock %}

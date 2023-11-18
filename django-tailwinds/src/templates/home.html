@@ -4,64 +4,39 @@
 
 {% block content %}
 
-<div class="pb-16 mx-16">
-    <div class="bg-blue-500 text-white p-4">
-        Formulaire d'Archives
+<div class="pb-16 mx-16 ">
+    <div class="bg-blue-500 text-white p-4 text-5xl mt-2 rounded-lg text-center">
+        Zone Bourse  Afridemia
     </div>
-    
-    <form method="post" novalidate>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enregistrer</button>
-    </form>
-    
-    <h2 class="bg-lime-500 text-white p-4 items-center text-center">Liste d'Archives</h2>
-    
-    {% for bursary in bursaries %}
-        <h2>{{ bursary.title }}</h2>
-        <p>Domaine: {{ bursary.domain }}</p>
-        <p>ti: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <p>Type: {{ bursary.type }}</p>
-        <!-- Affichez d'autres champs de la bourse ici selon vos besoins -->
-    {% empty %}
-        <p>Aucune Archive disponible.</p>
-    {% endfor %}
+    <div class="mt-4 flex space-x-4">
+        
+        <a href="{% url 'saisie_bourse' %}" class="mt-4 text-black  px-4 py-2 border duration-300 rounded-lg hover:shadow-lg">Saisir Bourse</a>
+        <a href="{% url 'liste_bourse' %}" class="mt-4 text-black  px-4 py-2 border duration-300 rounded-lg hover:shadow-lg">afficher Bourse pour entite</a>
+        <a href="{% url 'liste_bourse_admin' %}" class="mt-4 text-black  px-4 py-2 border duration-300 rounded-lg hover:shadow-lg">afficher detail Bourse createur</a>
+        
+    </div>
+
 </div>
 
-
-
-
-
-
-<div class="">
-    <div class="bg-blue-500 text-white p-4">
-        Formulaire Evenement
+<div class="pb-16 mx-16 ">
+    <div class="bg-blue-500 text-white p-4 text-5xl mt-2 rounded-lg text-center">
+        Zone Archive  Afridemia
     </div>
-    
-    <form method="post" novalidate>
-        {% csrf_token %}
-        {{ formulaire.as_p }}
-        <button type="submit" class="">Ajouter</button>
-    </form>
-    
-    <h2 class="bg-lime-500 text-white p-4 items-center text-center">Liste des evenements</h2>
-    <ul>
-        {% for evenement in evenements %}
-            <li>{{ evenement.nom }} - {{ evenement.lieu }}</li>
-            <!-- Affichez d'autres champs ici -->
-        {% empty %}
-            <li>Aucun événement disponible.</li>
-        {% endfor %}
-    </ul>
-    
-    {% endblock %}
+    <div class="mt-4 flex space-x-4">
+        
+        <a href="{% url 'saisie_archive' %}" class="mt-4 text-black  px-4 py-2 border duration-300 rounded-lg hover:shadow-lg">Saisir Archive</a>
+        <a href="{% url 'liste_archive' %}" class="mt-4 text-black  px-4 py-2 border duration-300 rounded-lg hover:shadow-lg">afficher Archive pour entite</a>        
+        <a href="{% url 'liste_archive_admin' %}" class="mt-4 text-black  px-4 py-2 border duration-300 rounded-lg hover:shadow-lg">afficher Archive pour Admin</a>        
+    </div>
+    <div class="mt-4 flex space-x-4">
+        
+    </div>
 </div>
+
+{% endblock %}
+
+
+
+
+
 

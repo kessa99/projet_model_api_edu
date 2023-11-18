@@ -9,12 +9,12 @@ class BourseForm(forms.ModelForm):
 class PostulerForm(forms.ModelForm):
     class Meta:
         model = Postulant
-        fields = ['nom', 'email', 'commentaire']
+        fields = ['nom', 'email', 'contenu']
 
 class CommentaireForm(forms.ModelForm):
     class Meta:
         model = Commentaire
-        fields = ['commentaire']
+        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         super(CommentaireForm, self).__init__(*args, **kwargs)

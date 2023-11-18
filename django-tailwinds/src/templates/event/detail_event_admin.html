@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail de la event{% endblock %}
+
+{% block content %}
+
+<div class=" my-16 border-2 border-gray-950 rounded-lg py-16 px-16">
+    <div class="bg-blue-500 text-white p-4 ">
+        Detail
+    </div>
+  
+    <h1>{{ event.titre }}</h1>
+    <p>description : {{ event.description }}</p>
+    <p>categorie : {{ event.categorie }}</p>
+    <p>organisateur : {{ event.organisateur }}</p>
+    <p>type event : {{ event.type_event }}</p>
+    <p>format event : {{ event.format_event }}</p>
+    <p>date debut : {{ event.date_debut }}</p>
+    <p>date fin : {{ event.date_fin }}</p>
+    <p>heure debut : {{ event.heure_debut }} heure</p>
+    <p>date debut : {{ event.date_debut }} heure</p>
+    <p>billet : {{ event.billet }}</p>
+    <p>fuseau_horaire : {{ event.fuseau_horaire }}</p>
+    <p>intervenants : {{ event.intervenants }}</p>
+
+ <div class="py-4">
+    <h3>Commentaires</h3>
+    {% for commentaire in event.contenu_set.all %}
+        <p>{{ commentaire.auteur.username }} - {{ commentaire.date_creation }}<br>{{ commentaire.contenu }}</p>
+    {% endfor %}
+ </div>
+
+    <h2 class="py-4">Ajouter un commentaire</h2>
+    <div class="py-4">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter le commentaire</button>
+        </form>
+    </div>
+
+    <div class="space-x-4">
+        <a  href="{% url 'home' %}" class="my-4 bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">back</a>
+        <a href="{% url 'modifie_event' event_id=event.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">modifier</a>
+        <a href="{% url 'supprime_event' event_id=event.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">supprimer</a>
+    </div>
+</div>
+
+{% endblock %}

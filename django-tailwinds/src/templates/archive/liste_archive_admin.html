@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}Bourse{% endblock %}
+{% load static %}
+{% block content %}
+
+    <section class="grid sm:grid-cols-1 lg:grid-cols-3 lg:h-screen bg-zinc-500 gap-4">
+        <div class="hidden lg:block lg:col-span-1 p-4  rounded-lg">
+            <div class="p-4 bg-sky-950  rounded-lg">
+
+                <form method="GET" action="">
+                    <!-- Champ Titre -->
+                    
+                    <input type="text" id="titre" name="titre"  placeholder="titre" class="w-full p-2 border rounded-md">
+            
+                    <!-- Champ Domaine (Liste déroulante) -->
+                    <select id="domaine" name="domaine" placeholder="Domaine" class="w-full p-2 my-4 border rounded-md">
+                        <option value="domaine1">Domaine 1</option>
+                        <option value="domaine2">Domaine 2</option>
+                        <option value="domaine3">Domaine 3</option>
+                        <!-- Ajoutez autant d'options que nécessaire -->
+                    </select>
+            
+                    <!-- Champ Type -->
+                    <input type="text" id="type" name="type" placeholder="Type" class="w-full p-2 border rounded-md">
+            
+                    <!-- Bouton de Recherche -->
+                    <button type="submit" class="mt-4 p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">Rechercher</button>
+                </form>
+            
+            </div>
+        </div>
+        <div class="col-span-1 h-screen lg:col-span-2 text-white p-4  rounded-lg">
+            <h2 class="border-b-2 text-center">
+                Archive
+            </h2>
+
+            <div class="mt-2 overflow-y-auto h-full">
+                <ul class="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-3 items-center text-center">
+                    {% for arch in archive %}
+                    <li class="">
+                        <div class="h-60 w-72   border-2 bg-slate-500 rounded-lg    ">
+                            <div class="p-5 w-48 h-44 bg-white rounded-b-lg">
+                                {% if arch.fichier %}
+                                    {{ archive.fichier }}
+                                {% endif %}
+                            </div>
+                            <div class="bg-gray-800 border rounded-lg">
+                                {{ arch.titre }}-{{ arch.matiere }}
+                            </div>
+                            <div class="p-5 flex justify-between">
+                                <a href="{% url 'detail_archive_admin' archive_id=arch.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">detail</a>
+                                
+                                <a href="{% url 'modifie_archive' archive_id=arch.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">modifier</a>
+                                <a href="{% url 'supprime_archive' archive_id=arch.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">supprimer</a>
+                            </div>
+                        </div> 
+                    </li>   
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}

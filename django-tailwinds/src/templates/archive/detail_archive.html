@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail de la archive{% endblock %}
+
+{% block content %}
+
+<div class=" my-16 border-2 border-gray-950 rounded-lg py-16 px-16">
+    <div class="bg-blue-500 text-white p-4 ">
+        Detail
+    </div>
+  
+    <h1>{{ archive.titre }}</h1>
+    <p>publicateur : {{ archive.publicateur }}</p>
+    <p>ecole : {{ archive.ecole }}</p>
+    <p>matiere : {{ archive.matiere }}</p>
+    <p>examen : {{ archive.examen }}</p>
+    <p>pays : {{ archive.pays }}</p>
+    <p>fichier : {{ archive.fichier }}</p>
+    <p>niveau : {{ archive.niveau }}</p>
+
+ <div class="py-4">
+    <h3>Commentaires</h3>
+    {% for commentaire in archive.contenu_set.all %}
+        <p>{{ commentaire.auteur.username }} - {{ commentaire.date_creation }}<br>{{ commentaire.contenu }}</p>
+    {% endfor %}
+ </div>
+
+    <h2 class="py-4">Ajouter un commentaire</h2>
+    <div class="py-4">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter le commentaire</button>
+        </form>
+    </div>
+
+    <div class="space-x-4">
+        <a  href="{% url 'home' %}" class="my-4 bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">back</a>
+        <a href="" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">telecharger</a>
+    </div>
+</div>
+
+{% endblock %}

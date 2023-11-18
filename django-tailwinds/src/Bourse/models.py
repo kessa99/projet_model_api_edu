@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Dans votre fichier Python
 # from customUser.models import CustomUser
@@ -26,10 +28,14 @@ class Postulant(models.Model):
     bourse = models.ForeignKey(Bourse, on_delete=models.CASCADE)
     nom = models.CharField(max_length=255)
     email = models.EmailField()
-    commentaire = models.TextField()
+    contenu = models.TextField()
+    date_creation = models.DateTimeField(default=timezone.now)
 
 class Commentaire(models.Model):
     bourse = models.ForeignKey(Bourse, on_delete=models.CASCADE)
-    nom = models.CharField(max_length=255)
-    email = models.EmailField()
-    commentaire = models.TextField()
+    nom = models.ForeignKey(User, on_delete=models.CASCADE)
+    contenu = models.TextField()
+    date_creation = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return "Commentaire de {} sur {}".format(self.nom.username, self.bourse.titre)
