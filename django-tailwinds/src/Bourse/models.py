@@ -31,6 +31,10 @@ class Postulant(models.Model):
     contenu = models.TextField()
     date_creation = models.DateTimeField(default=timezone.now)
 
+class like(models.Model):
+    bourse = models.ForeignKey(Bourse, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
 class Commentaire(models.Model):
     bourse = models.ForeignKey(Bourse, on_delete=models.CASCADE)
     nom = models.ForeignKey(User, on_delete=models.CASCADE)

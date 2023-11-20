@@ -2,65 +2,115 @@
 
 
 
-{% block title %}Bourse{% endblock %}
+{% block title %}Event{% endblock %}
 {% load static %}
 {% block content %}
 
-    <section class="grid sm:grid-cols-1 lg:grid-cols-3 lg:h-screen bg-zinc-500 gap-4">
-        <div class="hidden lg:block lg:col-span-1 p-4  rounded-lg">
-            <div class="p-4 bg-sky-950  rounded-lg">
+<div class="px-8 pb-8 w-full max-w-[1350px] mx-auto">
+    <!--------------------------------------- mini navbar --------------------------------------->
+  
+    <nav
+      class="mx-auto my-4 flex flex-row justify-between items-center gap-4 text-xs w-full max-w-[1350px]"
+    >
+      <!-- {% if user.is_staff %} -->
+      <div class="flex gap-4">
+        <a
+          class="hover:text-green-300 transition ease-in duration-300"
+          href=""
+          >
+          hello<i class="fa-solid fa-house"></i>
+        </a>
+        /
+        <a
+          class="hover:text-green-400 transition ease-in duration-300"
+          href=""
+          >Livres</a
+        >
+      </div>
+      <!-- {% endif %} {% if user.is_authenticated %} -->
+      <a
+        href=""
+        class="px-3 py-2 bg-blue-950 text-xs text-white hover:text-green-300 flex items-center rounded-lg transition duration-300 ease-in"
+        >Nouveau Livre<i class="fa-solid fa-plus ml-2"></i
+      ></a>
+      <!-- {% endif %} -->
+    </nav>
+  
+    <!--------------------------------------- books --------------------------------------->
+    <section id="books" class="w-full flex flex-col xl:flex-row gap-8 text-left">
+      <div class="text-sm flex flex-col xl:w-[300px] gap-3 xl:fixed z-30">
+        <form
+          action=""
+          class="p-3 w-full bg-slate-300 rounded-xl flex xl:flex-col gap-4"
+        >
+          <input
+            placeholder="Titre"
+            name="query"
+            type="text"
+            class="px-4 py-2 rounded-md text-sm focus:bg-sky-100 w-full"
+          />
+          <input
+            placeholder="Auteur"
+            name="query"
+            type="text"
+            class="px-4 py-2 rounded-md text-sm focus:bg-sky-100 w-full"
+          />
+          <input
+            placeholder="Langue"
+            name="query"
+            type="text"
+            class="px-4 py-2 rounded-md text-sm focus:bg-sky-100 w-full"
+          />
+  
+          <select
+            name="query"
+            class="px-4 py-2 rounded-md text-sm focus:bg-sky-100 w-full"
+          >
+            <option value="" disabled selected>Telechargeable</option>
+            <option value="true">Oui</option>
+            <option value="false">Non</option>
+          </select>
+          <div class="flex gap-3">
+            <a
+              href=""
+              class="px-3 py-2 rounded-lg text-sm text-black hover:text-white hover:bg-blue-950 transition duration-300 ease-in"
+            >
+              <i class="fa-solid fa-rotate-right"></i>
+            </a>
+            <button
+              class="px-4 py-2 w-full bg-slate-200 text-black hover:bg-green-200 rounded-md transition duration-300 ease-in"
+              type="submit"
+            >
+              Filtrer <i class="fa-solid fa-filter"></i>
+            </button>
+          </div>
+        </form>
 
-                <form method="GET" action="">
-                    <!-- Champ Titre -->
-                    
-                    <input type="text" id="titre" name="titre"  placeholder="titre" class="w-full p-2 border rounded-md">
-            
-                    <!-- Champ Domaine (Liste déroulante) -->
-                    <select id="domaine" name="domaine" placeholder="Domaine" class="w-full p-2 my-4 border rounded-md">
-                        <option value="domaine1">Domaine 1</option>
-                        <option value="domaine2">Domaine 2</option>
-                        <option value="domaine3">Domaine 3</option>
-                        <!-- Ajoutez autant d'options que nécessaire -->
-                    </select>
-            
-                    <!-- Champ Type -->
-                    <input type="text" id="type" name="type" placeholder="Type" class="w-full p-2 border rounded-md">
-            
-                    <!-- Bouton de Recherche -->
-                    <button type="submit" class="mt-4 p-2 bg-blue-500 text-white rounded-md hover:bg-blue-700">Rechercher</button>
-                </form>
-            
-            </div>
-        </div>
-        <div class="col-span-1 h-screen lg:col-span-2 text-white p-4  rounded-lg">
-            <h2 class="border-b-2 text-center">
-                Event
-            </h2>
 
-            <div class="mt-2 overflow-y-auto h-full">
-                <ul class="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-3 items-center text-center">
-                    {% for evt in event %}
-                    <li class="">
-                        <div class="h-60 w-72   border-2 bg-slate-500 rounded-lg    ">
-                            <div class="p-5 w-48 h-44 bg-white rounded-b-lg">
-                                {% if evt.image %}
-                                    <img src="{{ evt.image.url }}" alt="eventment">  
-                                {% endif %}
-                            </div>
-                            <div class="bg-gray-800 border rounded-lg">
-                                {{ evt.categorie }}
-                            </div>
-                            <div class="p-5 flex justify-between">
-                                <a href="{% url 'detail_event' event_id=evt.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">details</a>
-                                
-                                <a href="" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">Participer</a>
-                            </div>
-                        </div> 
-                    </li>   
-                    {% endfor %}
-                </ul>
-            </div>
+
+      </div>
+  
+      <div class="xl:ml-80 w-full mx-auto">
+        {% if not event %}
+        <div class="p-20 bg-white w-fit rounded-md flex-col text-center text-black m-auto">
+          <i class="fa-solid fa-book text-blue-950 text-7xl"></i>
+          <p class="mt-2 p-2 rounded-md text-md text-center">
+            Aucun Evenement disponible pour l'instant
+          </p>
         </div>
+        {% else %}
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        {% for evt in event %}
+          <!--  -->
+          {% include 'event/event_card.html' %}
+          <!--  -->
+        {% endfor %}
+        </div>
+
+        {% endif %}
+      </div>
     </section>
+  </div>
     
 {% endblock %}

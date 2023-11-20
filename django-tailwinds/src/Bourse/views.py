@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Bourse, Postulant, Commentaire
+from .models import Bourse, Postulant, Commentaire, like
 from .forms import BourseForm, PostulerForm, CommentaireForm
+from django.http import JsonResponse
 
 # Saisir bourse, lister les bourses afficher les details de la bourse
 def saisie_bourse(request):
@@ -73,7 +74,7 @@ def saisir_postulant(request, bourse_id):
             postulant = form.save(commit=False)
             postulant.bourse = bourse
             postulant.save()
-            return redirect('detail_bourse', bourse_id=bourse_id)
+            return redirect('details_bourse', bourse_id=bourse_id)
     else:
         form = PostulerForm()
     context = {
@@ -110,3 +111,22 @@ def saisie_commentaire(request, bourse_id):
         }
         form = CommentaireForm()
     return render(request, 'bourses/saisir_commentaire.html', context)
+
+
+
+def toggle_like(request, bourse_id):
+    print(f"Toggle like for bourse {bourse_id}")
+    bourse = get_object_or_404(Bourse, pk=bourse_id)
+    user = request.user if request.user.is_authenticated else None
+
+    # verifie si l'utilisateur a deja aime cet article
+    if like.objects.filter(bourse=bourse, user=user).exists():
+        # si le user a deja aime, supprimer le like
+        like.objects.filter(bourse=bourse, user=user).delete()
+        liked = False
+    else:
+        # sinon aimmons le like
+        like.objects.create(bourse=bourse, user=user)
+        liked = True
+    
+    return JsonResponse({'liked': liked, 'like_count': bourse.like_set.count()})

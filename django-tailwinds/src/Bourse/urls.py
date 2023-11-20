@@ -18,6 +18,7 @@ urlpatterns = [
 
     path('saisir_postulant/<int:bourse_id>/', views.saisir_postulant, name='saisir_postulant'),
     path('saisie_commentaire/<int:bourse_id>/', views.saisie_commentaire, name='saisie_commentaire'),
+    path('toggle_like/<int:bourse_id>/', views.toggle_like, name='toggle_like')
 #     path('bourse/like/<int:bourse_id>/', views.like_bourse, name='like_bourse'),
     # Ajoutez d'autres routes selon vos besoins
 ]

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'agenda',
     'massenger',
+    'crispy_tailwind',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 
 # Static files (CSS, JavaScript, Images)

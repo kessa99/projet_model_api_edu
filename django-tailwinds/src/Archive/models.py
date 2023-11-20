@@ -16,5 +16,8 @@ class Archive(models.Model):
     fichier = models.FileField(upload_to='archive_files/')
     niveau = models.CharField(max_length=4, choices=EXAM_CHOICES)
 
+class likes(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, )
+
 class Commentaire(models.Model):
     contenu = forms.CharField(widget=forms.Textarea)

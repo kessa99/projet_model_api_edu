@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Liste des Postulants</h2>
+    {% if not postulant %}
+    <div class="p-20 bg-white w-fit rounded-md flex-col text-center text-black m-auto">
+        <i class="fa-solid fa-book text-blue-950 text-7xl"></i>
+        <p class="mt-2 p-2 rounded-md text-md text-center">
+          Aucun Postulant
+        </p>
+      </div>
+    {% else %}
+    {% endif %}
+    {% for post in postulant %}
+    <ul class="">
+        <li class="border-b-2 my-2">{{ post.nom }} - {{ post.email }}</li>
+    </ul>
+    {% endfor %}
+
+{% endblock %}

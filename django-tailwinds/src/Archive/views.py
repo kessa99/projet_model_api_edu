@@ -44,7 +44,7 @@ def modifie_archive(request, archive_id):
         form = ArchiveForm(request.POST, instance=archive)
         if form.is_valid():
             form.save()
-            return redirect('details_archive', archive_id=archive_id)
+            return redirect('detail_archive_admin', archive_id=archive_id)
     else:
         form = ArchiveForm(instance=archive)
     context = {

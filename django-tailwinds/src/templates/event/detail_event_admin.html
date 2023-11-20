@@ -43,6 +43,9 @@
         <a  href="{% url 'home' %}" class="my-4 bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">back</a>
         <a href="{% url 'modifie_event' event_id=event.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">modifier</a>
         <a href="{% url 'supprime_event' event_id=event.id %}" class="bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">supprimer</a>
+        {% if event %}
+        <a href="{% url 'liste_participant' event_id=event.id %}" class="my-4 bg-gray-800 text-white text-xs py-2 px-4 mx-2 rounded-lg hover:bg-blue-600 transition">afficher les postulants</a>
+        {% endif %}
     </div>
 </div>
 
